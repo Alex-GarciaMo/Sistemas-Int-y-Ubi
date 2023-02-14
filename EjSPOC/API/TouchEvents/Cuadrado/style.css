@@ -1,0 +1,9 @@
+.touch-point {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 92px;
+    height: 92px;
+    background-color: red;
+    z-index: 9999; 
+  }

@@ -1,0 +1,18 @@
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+  
+  li {
+    border: 1px solid black;
+    min-height: 92px;
+    margin: auto;
+    padding: 15px;
+    vertical-align: middle;
+    font-size: 1.2em;
+  }
+  
+  .swiped {
+    background-color: green;
+  }
