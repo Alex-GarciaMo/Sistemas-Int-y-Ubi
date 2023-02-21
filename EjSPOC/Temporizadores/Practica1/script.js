@@ -31,11 +31,12 @@ var circle2 = L.circleMarker([4.1,-3], {
 }).addTo(mymap);
 
 
-mymap.on('click', function(e) {
-    console.log(e.latlng);
-    destino.setLatLng(e.latlng);
-    circle1.setLatLng(e.latlng);
-    circle2.setLatLng(e.latlng);    
+mymap.on('click', function(coords) {
+    //console.log(coords.latlng);
+    destino.setLatLng(coords.latlng);
+    circle1.setLatLng(coords.latlng);
+    circle2.setLatLng(coords.latlng);  
+
     
  
   })
@@ -64,13 +65,20 @@ function mostrarPosicion(posicion) {
     var longitud = posicion.coords.longitude;
 
     //Para ver coordenadas por consola
-    var position = [latitud,longitud]; 
-    console.log(position);
+    //var position = [latitud,longitud]; 
+    //console.log(position);
     
     // Actualizamos la posición del marcador.
     var newLatLng = new L.LatLng(latitud, longitud);
-    console.log(newLatLng);
+    //console.log(newLatLng);
     ubicacion.setLatLng(newLatLng); 
+
+    //Calculamos la distancia en metros entre los dos marcadores
+    var distance = mymap.distance(ubicacion._latlng, destino._latlng);
+    if (distance <= 50){
+        console.log(distance);
+    }
+    
 
     
 }
@@ -107,6 +115,18 @@ var opciones = {
     navigator.geolocation.clearWatch(watchId);
 }*/
 
+function vibratePhone() {
+    // Comprobar si el dispositivo es compatible con la API de vibración
+    console.log('Entramos en la funcion');
+  
+    // Hacer vibrar el teléfono durante 1 segundo
+    navigator.vibrate(1000);
+    console.log('Esta vibrando');
+  }
+  
+  // Hacer que el teléfono vibre cada 10 segundos
+  
+  setInterval(vibratePhone, 10000);
 
 
 
